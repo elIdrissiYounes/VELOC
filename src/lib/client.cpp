@@ -9,14 +9,20 @@
 //#define __DEBUG
 #include "common/debug.hpp"
 
+//namespace tl =thallium;
 veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
     cfg(cfg_file), comm(c) {
     MPI_Comm_rank(comm, &rank);
     engine_client("tcp://127.0.0.1:1234",THALLIUM_CLIENT_MODE);
     //DEFINING FTS
+
     tl::remote_procedure init= engine_client.define("init");
     tl::remote_procedure enqueue= engine_client.define("enqueue");
     tl::remote_procedure dequeue_any= engine_client.define("dequeue_any");
+    tl::remote_procedure wait_completion= engine_client.define("wait_completion");
+    tl::endpoint server=engine_client.lookup("tcp://127.0.0.1:1234");
+    uint16_t provider_id=22;
+    ph(server,provider_id);
     if (!cfg.get_optional("max_versions", max_versions)) {
 	INFO("Max number of versions to keep not specified, keeping all");
 	max_versions = 0;
@@ -26,7 +32,9 @@ veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
 	modules = new module_manager_t();
 	modules->add_default_modules(cfg, comm, true);
     } else
-	queue = new veloc_ipc::shm_queue_t<command_t>(std::to_string(rank).c_str());
+	//init
+	init.on(ph)(std::to_string(rank).c_str());
+	//queue = new veloc_ipc::shm_queue_t<command_t>(std::to_string(rank).c_str());
     ec_active = run_blocking(command_t(rank, command_t::INIT, 0, "")) > 0;
     DBG("VELOC initialized");
 }
@@ -41,7 +49,7 @@ void veloc_client_t::cleanup() {
 }
 
 veloc_client_t::~veloc_client_t() {
-    delete queue;
+    //delete queue;
     delete modules;
     DBG("VELOC finalized");
 }
@@ -62,7 +70,8 @@ bool veloc_client_t::checkpoint_wait() {
 	ERROR("need to finalize local checkpoint first by calling checkpoint_end()");
 	return false;
     }
-    return queue->wait_completion() == VELOC_SUCCESS;
+    //is veloc_succes a problem?
+    return wait_completion.on(ph) == VELOC_SUCCESS;
 }
 
 bool veloc_client_t::checkpoint_begin(const char *name, int version) {
@@ -83,7 +92,8 @@ bool veloc_client_t::checkpoint_begin(const char *name, int version) {
 	if ((int)version_history.size() > max_versions) {
 	    // wait for operations to complete in async mode before deleting old versions
 	    if (!cfg.is_sync())
-		queue->wait_completion(false);
+		//queue->wait_completion(false);
+		wait_completion.on(ph)(false);
 	    remove(current_ckpt.filename(cfg.get("scratch"), version_history.front()).c_str());
 	    version_history.pop_front();
 	}
@@ -121,7 +131,8 @@ bool veloc_client_t::checkpoint_end(bool /*success*/) {
     if (cfg.is_sync())
 	return modules->notify_command(current_ckpt) == VELOC_SUCCESS;
     else {
-	queue->enqueue(current_ckpt);
+	enqueue.on(ph)(current_ckpt);
+	//queue->enqueue(current_ckpt);
 	return true;
     }
 }
@@ -130,8 +141,11 @@ int veloc_client_t::run_blocking(const command_t &cmd) {
     if (cfg.is_sync())
 	return modules->notify_command(cmd);
     else {
-	queue->enqueue(cmd);
-	return queue->wait_completion();
+	
+	//queue->enqueue(cmd);
+	enqueue.on(ph)(cmd)
+	//return queue->wait_completion();
+	return wait_completion.on(ph);
     }
 }
 

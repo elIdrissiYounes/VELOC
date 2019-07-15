@@ -36,6 +36,22 @@ public:
 	       << "', Version = '" << c.version << "', File = '" << c.stem() << "')";
 	return output;
     }
+    //thallium serialization
+    template<typename A>
+	    void serialize(A& ar){
+		    ar& MAX_SIZE;
+		    ar& INIT;
+		    ar& CHECKPOINT;
+		    ar& RESTART;
+		    ar& TEST;
+		    ar& unique_id;
+		    ar& command;
+		    ar& version;
+		    ar& name;
+		    ar& original;
+
+
+	    }
 };
 
 #endif // __COMMAND_HPP

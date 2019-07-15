@@ -85,7 +85,8 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t> {
 			tl::provider<shm_queue_t>(e,provider_id);
 			define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
 			define("dequeue_any",&shm_queue_t::dequeue_any);
-			define("init",&shm_queue_t::init);
+			define("init",&shm_queue_t::init,tl::ignore_return_value());
+			define("wait_completion",&shm_queue_t::wait_completion);
 			
 
 		

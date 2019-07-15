@@ -11,6 +11,9 @@
 #include <set>
 #include <deque>
 #include <thallium.hpp>
+#include <thallium/serialization/stl/string.hpp>
+//does it exist?
+#include <thallium/serialization/stl/boolean.hpp>
 //needs to have the engine handle as a member 
 namespace tl=thallium;
 class veloc_client_t {
@@ -19,6 +22,7 @@ class veloc_client_t {
     bool collective, ec_active;
     int max_versions;
     tl::engine client_engine;
+    tl::provider_handle ph;
     typedef std::pair <void *, size_t> region_t;
     typedef std::map<int, region_t> regions_t;
     typedef std::map<std::string, std::deque<int> > checkpoint_history_t;
