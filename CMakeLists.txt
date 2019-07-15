@@ -3,7 +3,7 @@ project (VELOC)
 
 # some global compiler flags
 add_definitions(-O2 -g -Wall -D__BENCHMARK -D__ASSERT -D__INFO)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 # Now set up the libraries
 # -----------------------------------------------------------------------------------
@@ -14,6 +14,12 @@ list(APPEND CMAKE_MODULE_PATH "${VELOC_SOURCE_DIR}/cmake")
 
 SET(VELOC_RESOURCE_MANAGER "LSF" CACHE STRING "Resource Manager for CLI (SLURM LSF ALPS NONE)")
 SET_PROPERTY(CACHE VELOC_RESOURCE_MANAGER PROPERTY STRINGS SLURM LSF ALPS NONE)
+#me Younes
+#set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+#include (xpkg-import)
+#xpkg_import_module (argobots REQUIRED argobots)
+#xpkg_import_module (margo REQUIRED margo)
+#xpkg_import_module (abtio REQUIRED abt-io)
 
 ## PDSH
 FIND_PACKAGE(PDSH REQUIRED)
@@ -37,6 +43,7 @@ include_directories(${AXL_INCLUDE_DIRS})
 find_package(ER REQUIRED)
 include_directories(${ER_INCLUDE_DIRS})
 
+find_package(thallium REQUIRED)
 INCLUDE(GNUInstallDirs)
 ## Use X_ variable names for CLI scripts
 ## could use CMAKE_INSTALL_FULL_ names instead

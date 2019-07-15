@@ -13,7 +13,7 @@
 #include <thallium.hpp>
 #include <thallium/serialization/stl/string.hpp>
 //does it exist?
-#include <thallium/serialization/stl/boolean.hpp>
+//#include <thallium/serialization/stl/boolean.hpp>
 //needs to have the engine handle as a member 
 namespace tl=thallium;
 class veloc_client_t {

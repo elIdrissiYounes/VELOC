@@ -28,7 +28,7 @@ inline void cleanup() {
     boost::interprocess::named_condition::remove("veloc_pending_cond");
 }
     
-template <class T> class shm_queue_t: public tl::provider<shm_queue_t> {
+template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 	static const size_t MAX_SIZE = 1 << 20;
 	struct container_t {
 		typedef allocator<T, managed_shared_memory::segment_manager> T_allocator;
@@ -72,21 +72,20 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t> {
 	}
 
 	public:    
-	shm_queue_t(tl::engine& e, uint16_t provider_id=1) : segment(open_or_create, "veloc_shm" , MAX_SIZE),
+	shm_queue_t(tl::engine& e, uint16_t provider_id=22) : segment(open_or_create, "veloc_shm" , MAX_SIZE),
 	pending_mutex(open_or_create, "veloc_pending_mutex"),
 	pending_cond(open_or_create, "veloc_pending_cond"), 
-			tl::provider<shm_queue_t>(e,provider_id){
+			tl::provider<shm_queue_t<T>>(e,provider_id){
 
 		scoped_lock<named_mutex> cond_lock(pending_mutex);
 	/*	if (id != NULL){
 		
 			data = segment.find_or_construct<container_t>(id)(segment.get_allocator<typename container_t::T_allocator>());
 		}*/
-			tl::provider<shm_queue_t>(e,provider_id);
-			define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
-			define("dequeue_any",&shm_queue_t::dequeue_any);
-			define("init",&shm_queue_t::init,tl::ignore_return_value());
-			define("wait_completion",&shm_queue_t::wait_completion);
+		this->define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
+		this->define("dequeue_any",&shm_queue_t::dequeue_any);
+		this->define("init",&shm_queue_t::init,tl::ignore_return_value());
+		this->define("wait_completion",&shm_queue_t::wait_completion);
 			
 
 		
@@ -97,10 +96,10 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t> {
 
 
 	}
-	~shm_queue_t(){
+/*	~shm_queue_t(){
 		wait_for_finalize();
 	}
-
+*/
 	int wait_completion(bool reset_status = true) {
 		scoped_lock<interprocess_mutex> cond_lock(data->mutex);
 		while (!check_completion())
