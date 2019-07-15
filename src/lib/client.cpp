@@ -12,6 +12,11 @@
 veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
     cfg(cfg_file), comm(c) {
     MPI_Comm_rank(comm, &rank);
+    engine_client("tcp://127.0.0.1:1234",THALLIUM_CLIENT_MODE);
+    //DEFINING FTS
+    tl::remote_procedure init= engine_client.define("init");
+    tl::remote_procedure enqueue= engine_client.define("enqueue");
+    tl::remote_procedure dequeue_any= engine_client.define("dequeue_any");
     if (!cfg.get_optional("max_versions", max_versions)) {
 	INFO("Max number of versions to keep not specified, keeping all");
 	max_versions = 0;

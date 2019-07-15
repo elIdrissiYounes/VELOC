@@ -9,12 +9,14 @@
 
 #define __DEBUG
 #include "common/debug.hpp"
-
+#include <thallium.hpp>
+namespace tl=thallium;
 const unsigned int MAX_PARALLELISM = 64;
 
 int main(int argc, char *argv[]) {
     bool ec_active = true;
-    
+    uint16_t provider_id = 22;
+    tl::engine myEngine("tcp://127.0.0.1:1234",THALLIUM_SERVER_MODE);
     if (argc < 2 || argc > 3) {
 	veloc_ipc::cleanup();
 	std::cout << "Usage: " << argv[0] << " <veloc_config> [--disable-ec]" << std::endl;
@@ -39,7 +41,7 @@ int main(int argc, char *argv[]) {
     }
 
     veloc_ipc::cleanup();
-    veloc_ipc::shm_queue_t<command_t> command_queue(NULL);
+    veloc_ipc::shm_queue_t<command_t> command_queue(myEngine,provider_id);
     module_manager_t modules;
     modules.add_default_modules(cfg, MPI_COMM_WORLD, ec_active);
 
@@ -50,6 +52,7 @@ int main(int argc, char *argv[]) {
 	work_queue.push(std::async(std::launch::async, [=, &modules] {
 		    f(modules.notify_command(c));
 		}));
+	//why are you creating a pool; to keep up wth the executuio 
 	if (work_queue.size() > MAX_PARALLELISM) {
 	    work_queue.front().wait();
 	    work_queue.pop();
