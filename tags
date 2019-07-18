@@ -41,7 +41,7 @@ ARCHITECTURE_ID	CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	453;"	d	f
 ASSERT	src/common/debug.hpp	51;"	d
 ASSERT	src/common/debug.hpp	59;"	d
 BUILDDIR	docs/Makefile	/^BUILDDIR      = _build$/;"	m
-CHECKPOINT	src/common/command.hpp	/^    static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
+CHECKPOINT	src/common/command.hpp	/^		static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
 CKPT_FREQ	test/heatdis_fault.cpp	/^static const unsigned int CKPT_FREQ = ITER_TIMES \/ 3;$/;"	v	file:
 CKPT_FREQ	test/heatdis_file.c	/^static const unsigned int CKPT_FREQ = ITER_TIMES \/ 3;$/;"	v	file:
 CKPT_FREQ	test/heatdis_mem.c	/^static const unsigned int CKPT_FREQ = ITER_TIMES \/ 3;$/;"	v	file:
@@ -341,7 +341,7 @@ INFO	src/common/debug.hpp	41;"	d
 INIReader	src/common/INIReader.h	/^    INIReader() {};$/;"	f	class:INIReader
 INIReader	src/common/INIReader.h	/^class INIReader$/;"	c
 INIReader	src/common/INIReader.h	/^inline INIReader::INIReader(string filename)$/;"	f	class:INIReader
-INIT	src/common/command.hpp	/^    static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
+INIT	src/common/command.hpp	/^		static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
 INI_ALLOW_BOM	src/common/INIReader.h	67;"	d
 INI_ALLOW_INLINE_COMMENTS	src/common/INIReader.h	74;"	d
 INI_ALLOW_MULTILINE	src/common/INIReader.h	61;"	d
@@ -354,8 +354,8 @@ ITER_TIMES	test/heatdis.h	10;"	d
 MAX_NAME	src/common/INIReader.h	121;"	d
 MAX_PARALLELISM	src/backend/main.cpp	/^const unsigned int MAX_PARALLELISM = 64;$/;"	v
 MAX_SECTION	src/common/INIReader.h	120;"	d
-MAX_SIZE	src/common/command.hpp	/^    static const size_t MAX_SIZE = 128;$/;"	m	class:command_t
-MAX_SIZE	src/common/ipc_queue.hpp	/^    static const size_t MAX_SIZE = 1 << 20;$/;"	m	class:veloc_ipc::shm_queue_t
+MAX_SIZE	src/common/command.hpp	/^		static const size_t MAX_SIZE = 128;$/;"	m	class:command_t
+MAX_SIZE	src/common/ipc_queue.hpp	/^	static const size_t MAX_SIZE = 1 << 20;$/;"	m	class:veloc_ipc::shm_queue_t
 MESSAGE	src/common/debug.hpp	27;"	d
 MakeKey	src/common/INIReader.h	/^inline string INIReader::MakeKey(string section, string name)$/;"	f	class:INIReader
 NDEBUG	test/heatdis_fault.cpp	10;"	d	file:
@@ -430,7 +430,7 @@ PLATFORM_ID	CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	390;"	d	file:
 PRECISION	test/heatdis.h	9;"	d
 ParseError	src/common/INIReader.h	/^inline int INIReader::ParseError() const$/;"	f	class:INIReader
 REDUCE	test/heatdis.h	13;"	d
-RESTART	src/common/command.hpp	/^    static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
+RESTART	src/common/command.hpp	/^		static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
 RM	Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	scripts/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	scripts/common/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
@@ -482,12 +482,12 @@ SUFFIXES	src/lib/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	src/modules/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	test/Makefile	/^SUFFIXES =$/;"	m
 Sections	src/common/INIReader.h	/^inline std::set<string> INIReader::Sections()$/;"	f	class:INIReader
-TEST	src/common/command.hpp	/^    static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
+TEST	src/common/command.hpp	/^		static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;$/;"	m	class:command_t
 TIMER_START	src/common/debug.hpp	15;"	d
 TIMER_START	src/common/debug.hpp	23;"	d
 TIMER_STOP	src/common/debug.hpp	16;"	d
 TIMER_STOP	src/common/debug.hpp	24;"	d
-T_allocator	src/common/ipc_queue.hpp	/^	typedef allocator<T, managed_shared_memory::segment_manager> T_allocator;$/;"	t	struct:veloc_ipc::shm_queue_t::container_t
+T_allocator	src/common/ipc_queue.hpp	/^		typedef allocator<T, managed_shared_memory::segment_manager> T_allocator;$/;"	t	struct:veloc_ipc::shm_queue_t::container_t
 Usage	scripts/ALPS/veloc_list_down_nodes.in	/^  Usage:  $prog [options] [nodeset]$/;"	l
 Usage	scripts/LSF/veloc_list_down_nodes	/^  Usage:  $prog [options] [nodeset]$/;"	l
 Usage	scripts/LSF/veloc_list_down_nodes.in	/^  Usage:  $prog [options] [nodeset]$/;"	l
@@ -558,7 +558,7 @@ cfg	src/modules/client_watchdog.hpp	/^    const config_t &cfg;$/;"	m	class:clien
 cfg	src/modules/ec_module.hpp	/^    config_t cfg;$/;"	m	class:ec_module_t
 cfg	src/modules/transfer_module.hpp	/^    const config_t &cfg;$/;"	m	class:transfer_module_t
 cfg_file	src/common/config.hpp	/^    std::string cfg_file;$/;"	m	class:config_t
-check_completion	src/common/ipc_queue.hpp	/^    bool check_completion() {$/;"	f	class:veloc_ipc::shm_queue_t
+check_completion	src/common/ipc_queue.hpp	/^	bool check_completion() {$/;"	f	class:veloc_ipc::shm_queue_t
 check_dir	src/common/config.cpp	/^static bool check_dir(const std::string dir_name) {$/;"	f	file:
 checkpoint_begin	src/lib/client.cpp	/^bool veloc_client_t::checkpoint_begin(const char *name, int version) {$/;"	f	class:veloc_client_t
 checkpoint_end	src/lib/client.cpp	/^bool veloc_client_t::checkpoint_end(bool \/*success*\/) {$/;"	f	class:veloc_client_t
@@ -585,23 +585,24 @@ collective	src/lib/client.hpp	/^    bool collective, ec_active;$/;"	m	class:velo
 comm	src/lib/client.hpp	/^    MPI_Comm comm;$/;"	m	class:veloc_client_t
 comm	src/modules/ec_module.hpp	/^    MPI_Comm comm, comm_domain;$/;"	m	class:ec_module_t
 comm_domain	src/modules/ec_module.hpp	/^    MPI_Comm comm, comm_domain;$/;"	m	class:ec_module_t
-command	src/common/command.hpp	/^    int unique_id, command, version;$/;"	m	class:command_t
-command_t	src/common/command.hpp	/^    command_t() { }$/;"	f	class:command_t
-command_t	src/common/command.hpp	/^    command_t(int r, int c, int v, const std::string &s) : unique_id(r), command(c), version(v) {$/;"	f	class:command_t
+command	src/common/command.hpp	/^		int unique_id, command, version;$/;"	m	class:command_t
+command_t	src/common/command.hpp	/^		command_t() { }$/;"	f	class:command_t
+command_t	src/common/command.hpp	/^		command_t(int r, int c, int v, const std::string &s) : unique_id(r), command(c), version(v) {$/;"	f	class:command_t
 command_t	src/common/command.hpp	/^class command_t {$/;"	c
 compiler_options	auto-install.py	/^compiler_options = ""$/;"	v
 completion_t	src/common/ipc_queue.hpp	/^typedef std::function<void (int)> completion_t;$/;"	t	namespace:veloc_ipc
 compress	scripts/common/veloc_hostlist.pm	/^sub compress {$/;"	s
 compress_range	scripts/common/veloc_hostlist.pm	/^sub compress_range {$/;"	s
-cond	src/common/ipc_queue.hpp	/^	interprocess_condition cond;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
+cond	src/common/ipc_queue.hpp	/^		interprocess_condition cond;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
 config_t	src/common/config.cpp	/^config_t::config_t(const std::string &f) : cfg_file(f), reader(cfg_file) {$/;"	f	class:config_t
 config_t	src/common/config.hpp	/^class config_t {$/;"	c
 const	CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
-container_t	src/common/ipc_queue.hpp	/^	container_t(const T_allocator &alloc) : pending(alloc), progress(alloc) { }$/;"	f	struct:veloc_ipc::shm_queue_t::container_t
-container_t	src/common/ipc_queue.hpp	/^    struct container_t {$/;"	s	class:veloc_ipc::shm_queue_t
+container_t	src/common/ipc_queue.hpp	/^		container_t(const T_allocator &alloc) : pending(alloc), progress(alloc) { }$/;"	f	struct:veloc_ipc::shm_queue_t::container_t
+container_t	src/common/ipc_queue.hpp	/^	struct container_t {$/;"	s	class:veloc_ipc::shm_queue_t
 current_ckpt	src/lib/client.hpp	/^    command_t current_ckpt;$/;"	m	class:veloc_client_t
-data	src/common/ipc_queue.hpp	/^    container_t *data = NULL;$/;"	m	class:veloc_ipc::shm_queue_t
-dequeue_any	src/common/ipc_queue.hpp	/^    completion_t dequeue_any(T &e) {$/;"	f	class:veloc_ipc::shm_queue_t
+data	src/common/ipc_queue.hpp	/^	container_t *data = NULL;$/;"	m	class:veloc_ipc::shm_queue_t
+dequeue_any	src/common/ipc_queue.hpp	/^	completion_t dequeue_any(T &e) {$/;"	f	class:veloc_ipc::shm_queue_t
+dequeue_any	src/lib/client.hpp	/^    tl::remote_procedure dequeue_any;$/;"	m	class:veloc_client_t
 diff	scripts/common/veloc_hostlist.pm	/^sub diff {$/;"	s
 doWork	test/heatdis_fault.cpp	/^double doWork(int numprocs, int rank, int M, int nbLines, double *g, double *h) {$/;"	f
 doWork	test/heatdis_file.c	/^double doWork(int numprocs, int rank, int M, int nbLines, double *g, double *h) {$/;"	f
@@ -611,7 +612,9 @@ ec_active	src/lib/client.hpp	/^    bool collective, ec_active;$/;"	m	class:veloc
 ec_agg	src/modules/module_manager.hpp	/^    client_aggregator_t *ec_agg = NULL;$/;"	m	class:module_manager_t
 ec_module_t	src/modules/ec_module.cpp	/^ec_module_t::ec_module_t(const config_t &c, MPI_Comm cm) : cfg(c), comm(cm) {$/;"	f	class:ec_module_t
 ec_module_t	src/modules/ec_module.hpp	/^class ec_module_t {$/;"	c
-enqueue	src/common/ipc_queue.hpp	/^    void enqueue(const T &e) {$/;"	f	class:veloc_ipc::shm_queue_t
+engine_client	src/lib/client.hpp	/^    tl::engine engine_client;$/;"	m	class:veloc_client_t
+enqueue	src/common/ipc_queue.hpp	/^	void enqueue(const T &e) {$/;"	f	class:veloc_ipc::shm_queue_t
+enqueue	src/lib/client.hpp	/^    tl::remote_procedure enqueue;$/;"	m	class:veloc_client_t
 exclude_patterns	docs/conf.py	/^exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']$/;"	v
 expand	scripts/common/veloc_hostlist.pm	/^sub expand {$/;"	s
 extensions	docs/conf.py	/^extensions = [$/;"	v
@@ -620,15 +623,15 @@ f	auto-install.py	/^        f = tarfile.open(pdsh_tarball, mode='r:gz')$/;"	v
 fdomain	src/modules/ec_module.hpp	/^    std::string fdomain;$/;"	m	class:ec_module_t
 features	CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
-filename	src/common/command.hpp	/^    std::string filename(const std::string &prefix) const {$/;"	f	class:command_t
-filename	src/common/command.hpp	/^    std::string filename(const std::string &prefix, int new_version) const {$/;"	f	class:command_t
+filename	src/common/command.hpp	/^		std::string filename(const std::string &prefix) const {$/;"	f	class:command_t
+filename	src/common/command.hpp	/^		std::string filename(const std::string &prefix, int new_version) const {$/;"	f	class:command_t
 find_chars_or_comment	src/common/INIReader.h	/^inline static char* find_chars_or_comment(const char* s, const char* chars)$/;"	f
-find_non_empty_pending	src/common/ipc_queue.hpp	/^    container_t *find_non_empty_pending() {$/;"	f	class:veloc_ipc::shm_queue_t
+find_non_empty_pending	src/common/ipc_queue.hpp	/^	container_t *find_non_empty_pending() {$/;"	f	class:veloc_ipc::shm_queue_t
 get	src/common/config.hpp	/^    std::string get(const std::string &param) const {$/;"	f	class:config_t
 get_cfg_file	src/common/config.hpp	/^    const std::string &get_cfg_file() const {$/;"	f	class:config_t
 get_latest_version	src/modules/ec_module.cpp	/^static int get_latest_version(const std::string &p, const std::string &cname, int needed_version) {$/;"	f	file:
 get_latest_version	src/modules/transfer_module.cpp	/^static int get_latest_version(const std::string &p, const command_t &c) {$/;"	f	file:
-get_num_queues	src/common/ipc_queue.hpp	/^    size_t get_num_queues() {$/;"	f	class:veloc_ipc::shm_queue_t
+get_num_queues	src/common/ipc_queue.hpp	/^	size_t get_num_queues() {$/;"	f	class:veloc_ipc::shm_queue_t
 get_optional	src/common/config.hpp	/^    bool get_optional(const std::string &param, bool def) const {$/;"	f	class:config_t
 get_optional	src/common/config.hpp	/^    bool get_optional(const std::string &param, int &value) const {$/;"	f	class:config_t
 get_optional	src/common/config.hpp	/^    bool get_optional(const std::string &param, std::string &value) const {$/;"	f	class:config_t
@@ -665,6 +668,8 @@ ini_parse	src/common/INIReader.h	/^inline int ini_parse(const char* filename, in
 ini_parse_file	src/common/INIReader.h	/^inline int ini_parse_file(FILE* file, ini_handler handler, void* user)$/;"	f
 ini_parse_stream	src/common/INIReader.h	/^inline int ini_parse_stream(ini_reader reader, void* stream, ini_handler handler,$/;"	f
 ini_reader	src/common/INIReader.h	/^typedef char* (*ini_reader)(char* str, int num, void* stream);$/;"	t
+init	src/common/ipc_queue.hpp	/^	void init( string zizi){$/;"	f	class:veloc_ipc::shm_queue_t
+init	src/lib/client.hpp	/^    tl::remote_procedure init;$/;"	m	class:veloc_client_t
 initData	test/heatdis_fault.cpp	/^void initData(int nbLines, int M, int rank, double *h) {$/;"	f
 initData	test/heatdis_file.c	/^void initData(int nbLines, int M, int rank, double *h) {$/;"	f
 initData	test/heatdis_mem.c	/^void initData(int nbLines, int M, int rank, double *h) {$/;"	f
@@ -680,8 +685,8 @@ last_timestamp	src/modules/transfer_module.hpp	/^    std::map<int, std::chrono::
 latex_documents	docs/conf.py	/^latex_documents = [$/;"	v
 latex_elements	docs/conf.py	/^latex_elements = {$/;"	v
 link_list	auto-install.py	/^            link_list = soup.findAll('a', attrs={'href': re.compile("bz2")})$/;"	v
-list_iterator_t	src/common/ipc_queue.hpp	/^    typedef typename container_t::list_t::iterator list_iterator_t;$/;"	t	class:veloc_ipc::shm_queue_t
-list_t	src/common/ipc_queue.hpp	/^	typedef list<T, T_allocator> list_t;$/;"	t	struct:veloc_ipc::shm_queue_t::container_t
+list_iterator_t	src/common/ipc_queue.hpp	/^	typedef typename container_t::list_t::iterator list_iterator_t;$/;"	t	class:veloc_ipc::shm_queue_t
+list_t	src/common/ipc_queue.hpp	/^		typedef list<T, T_allocator> list_t;$/;"	t	struct:veloc_ipc::shm_queue_t::container_t
 lskip	src/common/INIReader.h	/^inline static char* lskip(const char* s)$/;"	f
 main	CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
 main	CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
@@ -707,17 +712,18 @@ module_manager_t	src/modules/module_manager.cpp	/^module_manager_t::module_manag
 module_manager_t	src/modules/module_manager.hpp	/^class module_manager_t {$/;"	c
 modules	src/lib/client.hpp	/^    module_manager_t *modules = NULL;$/;"	m	class:veloc_client_t
 mpiver_str	CMakeFiles/FindMPI/test_mpi.cpp	/^const char mpiver_str[] = { 'I', 'N',$/;"	v
-mutex	src/common/ipc_queue.hpp	/^	interprocess_mutex mutex;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
-name	src/common/command.hpp	/^    char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};$/;"	m	class:command_t
+mutex	src/common/ipc_queue.hpp	/^		interprocess_mutex mutex;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
+name	src/common/command.hpp	/^		char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};$/;"	m	class:command_t
 no_clients	src/modules/client_aggregator.hpp	/^    unsigned int no_clients = 0;$/;"	m	class:client_aggregator_t
 notify_command	src/modules/module_manager.cpp	/^int module_manager_t::notify_command(const command_t &c) {$/;"	f	class:module_manager_t
-operator <<	src/common/command.hpp	/^    friend std::ostream &operator<<(std::ostream &output, const command_t &c) {$/;"	f	class:command_t
-original	src/common/command.hpp	/^    char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};$/;"	m	class:command_t
+operator <<	src/common/command.hpp	/^		friend std::ostream &operator<<(std::ostream &output, const command_t &c) {$/;"	f	class:command_t
+original	src/common/command.hpp	/^		char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};$/;"	m	class:command_t
 parser	auto-install.py	/^    parser = argparse.ArgumentParser(description='VeloC installation script')$/;"	v
 pdsh_tarball	auto-install.py	/^        pdsh_tarball = wget.download('https:\/\/github.com\/chaos\/pdsh\/releases\/download\/pdsh-2.33\/pdsh-2.33.tar.gz', out=args.temp)$/;"	v
-pending	src/common/ipc_queue.hpp	/^	list_t pending, progress;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
-pending_cond	src/common/ipc_queue.hpp	/^    named_condition pending_cond;$/;"	m	class:veloc_ipc::shm_queue_t
-pending_mutex	src/common/ipc_queue.hpp	/^    named_mutex     pending_mutex;$/;"	m	class:veloc_ipc::shm_queue_t
+pending	src/common/ipc_queue.hpp	/^		list_t pending, progress;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
+pending_cond	src/common/ipc_queue.hpp	/^	named_condition pending_cond;$/;"	m	class:veloc_ipc::shm_queue_t
+pending_mutex	src/common/ipc_queue.hpp	/^	named_mutex     pending_mutex;$/;"	m	class:veloc_ipc::shm_queue_t
+ph	src/lib/client.hpp	/^    tl::provider_handle ph;$/;"	m	class:veloc_client_t
 posix_transfer_file	src/modules/transfer_module.cpp	/^static int posix_transfer_file(const std::string &source, const std::string &dest) {$/;"	f	file:
 print_usage	scripts/ALPS/veloc_list_down_nodes.in	/^sub print_usage {$/;"	s
 print_usage	scripts/LSF/veloc_env	/^sub print_usage$/;"	s
@@ -735,12 +741,11 @@ process_command	src/modules/client_watchdog.cpp	/^int client_watchdog_t::process
 process_command	src/modules/ec_module.cpp	/^int ec_module_t::process_command(const command_t &c) {$/;"	f	class:ec_module_t
 process_command	src/modules/transfer_module.cpp	/^int transfer_module_t::process_command(const command_t &c) {$/;"	f	class:transfer_module_t
 process_commands	src/modules/ec_module.cpp	/^int ec_module_t::process_commands(const std::vector<command_t> &cmds) {    $/;"	f	class:ec_module_t
-progress	src/common/ipc_queue.hpp	/^	list_t pending, progress;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
+progress	src/common/ipc_queue.hpp	/^		list_t pending, progress;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
 project	docs/conf.py	/^project = 'VeloC'$/;"	v
 pygments_style	docs/conf.py	/^pygments_style = 'sphinx'$/;"	v
 qnxnto	CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
-queue	src/lib/client.hpp	/^    veloc_ipc::shm_queue_t<command_t> *queue = NULL;$/;"	m	class:veloc_client_t
 rank	src/lib/client.hpp	/^    int rank;$/;"	m	class:veloc_client_t
 reader	src/common/config.hpp	/^    INIReader reader;$/;"	m	class:config_t
 recover_mem	src/lib/client.cpp	/^bool veloc_client_t::recover_mem(int mode, std::set<int> &ids) {$/;"	f	class:veloc_client_t
@@ -758,17 +763,18 @@ rstrip	src/common/INIReader.h	/^inline static char* rstrip(char* s)$/;"	f
 run_blocking	src/lib/client.cpp	/^int veloc_client_t::run_blocking(const command_t &cmd) {$/;"	f	class:veloc_client_t
 safe_printf	src/common/debug.hpp	9;"	d
 scheme_id	src/modules/ec_module.hpp	/^    int scheme_id, interval, max_versions;$/;"	m	class:ec_module_t
-segment	src/common/ipc_queue.hpp	/^    managed_shared_memory segment;$/;"	m	class:veloc_ipc::shm_queue_t
-set_completion	src/common/ipc_queue.hpp	/^    void set_completion(container_t *q, const list_iterator_t  &it, int status) {$/;"	f	class:veloc_ipc::shm_queue_t
-shm_queue_t	src/common/ipc_queue.hpp	/^    shm_queue_t(const char *id) : segment(open_or_create, "veloc_shm" , MAX_SIZE),$/;"	f	class:veloc_ipc::shm_queue_t
-shm_queue_t	src/common/ipc_queue.hpp	/^template <class T> class shm_queue_t {$/;"	c	namespace:veloc_ipc
+segment	src/common/ipc_queue.hpp	/^	managed_shared_memory segment;$/;"	m	class:veloc_ipc::shm_queue_t
+serialize	src/common/command.hpp	/^			void serialize(A& ar){$/;"	f	class:command_t
+set_completion	src/common/ipc_queue.hpp	/^	void set_completion(container_t *q, const list_iterator_t  &it, int status) {$/;"	f	class:veloc_ipc::shm_queue_t
+shm_queue_t	src/common/ipc_queue.hpp	/^	shm_queue_t(tl::engine& e, uint16_t provider_id=22) : segment(open_or_create, "veloc_shm" , MAX_SIZE),$/;"	f	class:veloc_ipc::shm_queue_t
+shm_queue_t	src/common/ipc_queue.hpp	/^template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {$/;"	c	namespace:veloc_ipc
 sig	src/modules/module_manager.hpp	/^    std::vector<method_t> sig;$/;"	m	class:module_manager_t
 single_function	src/modules/client_aggregator.hpp	/^    single_function_t single_function;$/;"	m	class:client_aggregator_t
 single_function_t	src/modules/client_aggregator.hpp	/^    typedef std::function<int (const command_t &)> single_function_t;$/;"	t	class:client_aggregator_t
 soup	auto-install.py	/^            soup = bs4.BeautifulSoup(urllib.request.urlopen("https:\/\/www.boost.org\/users\/download"), "html.parser")$/;"	v
 source_suffix	docs/conf.py	/^source_suffix = '.rst'$/;"	v
-status	src/common/ipc_queue.hpp	/^	int status = VELOC_SUCCESS;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
-stem	src/common/command.hpp	/^    std::string stem() const {$/;"	f	class:command_t
+status	src/common/ipc_queue.hpp	/^		int status = VELOC_SUCCESS;$/;"	m	struct:veloc_ipc::shm_queue_t::container_t
+stem	src/common/command.hpp	/^		std::string stem() const {$/;"	f	class:command_t
 strncpy0	src/common/INIReader.h	/^inline static char* strncpy0(char* dest, const char* src, size_t size)$/;"	f
 sync_mode	src/common/config.hpp	/^    bool sync_mode;$/;"	m	class:config_t
 templates_path	docs/conf.py	/^templates_path = ['_templates']$/;"	v
@@ -779,7 +785,7 @@ transfer	src/modules/module_manager.hpp	/^    transfer_module_t *transfer = NULL
 transfer_file	src/modules/transfer_module.cpp	/^int transfer_module_t::transfer_file(const std::string &source, const std::string &dest) {$/;"	f	class:transfer_module_t
 transfer_module_t	src/modules/transfer_module.cpp	/^transfer_module_t::transfer_module_t(const config_t &c) : cfg(c), axl_type(AXL_XFER_NULL) {$/;"	f	class:transfer_module_t
 transfer_module_t	src/modules/transfer_module.hpp	/^class transfer_module_t {$/;"	c
-unique_id	src/common/command.hpp	/^    int unique_id, command, version;$/;"	m	class:command_t
+unique_id	src/common/command.hpp	/^		int unique_id, command, version;$/;"	m	class:command_t
 use_axl	src/modules/transfer_module.hpp	/^    bool use_axl = false;$/;"	m	class:transfer_module_t
 veloc_client	src/lib/veloc.cpp	/^static veloc_client_t *veloc_client = NULL;$/;"	v	file:
 veloc_client_t	src/lib/client.cpp	/^veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :$/;"	f	class:veloc_client_t
@@ -789,9 +795,10 @@ veloc_destructor	src/lib/veloc.cpp	/^void __attribute__ ((destructor)) veloc_des
 veloc_hostlist	scripts/common/veloc_hostlist.pm	/^package veloc_hostlist;$/;"	p
 veloc_ipc	src/common/ipc_queue.hpp	/^namespace veloc_ipc {$/;"	n
 version	docs/conf.py	/^version = ''$/;"	v
-version	src/common/command.hpp	/^    int unique_id, command, version;$/;"	m	class:command_t
+version	src/common/command.hpp	/^		int unique_id, command, version;$/;"	m	class:command_t
 volatile	CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	11;"	d	file:
-wait_completion	src/common/ipc_queue.hpp	/^    int wait_completion(bool reset_status = true) {$/;"	f	class:veloc_ipc::shm_queue_t
+wait_completion	src/common/ipc_queue.hpp	/^	int wait_completion(bool reset_status = true) {$/;"	f	class:veloc_ipc::shm_queue_t
+wait_completion	src/lib/client.hpp	/^    tl::remote_procedure wait_completion;$/;"	m	class:veloc_client_t
 watchdog	src/modules/module_manager.hpp	/^    client_watchdog_t *watchdog = NULL;$/;"	m	class:module_manager_t
 watchdog_thread	src/modules/client_watchdog.hpp	/^    std::thread watchdog_thread;$/;"	m	class:client_watchdog_t
 ~ec_module_t	src/modules/ec_module.cpp	/^ec_module_t::~ec_module_t() {$/;"	f	class:ec_module_t

@@ -15,10 +15,8 @@ list(APPEND CMAKE_MODULE_PATH "${VELOC_SOURCE_DIR}/cmake")
 SET(VELOC_RESOURCE_MANAGER "LSF" CACHE STRING "Resource Manager for CLI (SLURM LSF ALPS NONE)")
 SET_PROPERTY(CACHE VELOC_RESOURCE_MANAGER PROPERTY STRINGS SLURM LSF ALPS NONE)
 #me Younes
-#set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-#include (xpkg-import)
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 #xpkg_import_module (argobots REQUIRED argobots)
-#xpkg_import_module (margo REQUIRED margo)
 #xpkg_import_module (abtio REQUIRED abt-io)
 
 ## PDSH

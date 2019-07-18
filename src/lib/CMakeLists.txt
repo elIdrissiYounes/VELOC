@@ -1,3 +1,4 @@
+find_package(thallium REQUIRED)
 add_library (veloc-client SHARED 
   veloc.cpp
   client.cpp
@@ -5,7 +6,7 @@ add_library (veloc-client SHARED
 )
 
 # Link the executable to the necessary libraries.
-target_link_libraries (veloc-client veloc-modules ${ER_LIBRARIES} ${MPI_CXX_LIBRARIES} rt)
+target_link_libraries (veloc-client veloc-modules thallium ${ER_LIBRARIES} ${MPI_CXX_LIBRARIES} rt)
 
 # Install libraries
 install (TARGETS veloc-client

@@ -117,11 +117,24 @@ src/backend/veloc-backend: src/backend/CMakeFiles/veloc-backend.dir/main.cpp.o
 src/backend/veloc-backend: src/backend/CMakeFiles/veloc-backend.dir/__/common/config.cpp.o
 src/backend/veloc-backend: src/backend/CMakeFiles/veloc-backend.dir/build.make
 src/backend/veloc-backend: src/modules/libveloc-modules.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/thallium-0.4-tptj5pfi4royjxjmoqozdkdpr2ys73fg/lib/libthallium.so.0.4.0
 src/backend/veloc-backend: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
 src/backend/veloc-backend: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
 src/backend/veloc-backend: /home/younes/anl-veloc/install/lib/liber.so
 src/backend/veloc-backend: /home/younes/anl-veloc/install/lib/librankstr.so
 src/backend/veloc-backend: /home/younes/anl-veloc/install/lib/libaxl.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so.1.0.1
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so.0.3.1
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so.1.0.1
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so.1.0.1
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/libfabric-1.8.0-qmuyvkxz3lyjhve5z22lo4ahdxeqivmu/lib/libfabric.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/margo-0.5-m3puxdaa7ob6tz2jlk5i44ega7w4l2up/lib/libmargo.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_hl.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so
+src/backend/veloc-backend: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib/libabt.so
 src/backend/veloc-backend: src/backend/CMakeFiles/veloc-backend.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/younes/anl-veloc/VELOC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable veloc-backend"
 	cd /home/younes/anl-veloc/VELOC/src/backend && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/veloc-backend.dir/link.txt --verbose=$(VERBOSE)

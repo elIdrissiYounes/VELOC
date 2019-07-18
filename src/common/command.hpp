@@ -4,9 +4,14 @@
 #include <iostream>
 #include <cstring>
 #include <stdexcept>
-#include<thallium.hpp>
+#include <thallium.hpp>
 #include <thallium/serialization/stl/array.hpp>
 #include <thallium/serialization/stl/list.hpp>
+#include <thallium/serialization/stl/string.hpp>
+#include <thallium/serialization/stl/pair.hpp>
+#include <thallium/serialization/stl/complex.hpp>
+#include <thallium/serialization/stl/map.hpp>
+#include <thallium/serialization/stl/set.hpp>
 namespace tl=thallium;
 class command_t {
 	public:
@@ -15,26 +20,22 @@ class command_t {
 
 		int unique_id, command, version;
 		char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};
-	
 		command_t() { }
-		template <class A> void serialize(A& ar){
-				ar & MAX_SIZE;
-				ar & INIT;
-				ar & CHECKPOINT;
-				ar & RESTART;
-				ar & TEST;
-				ar & unique_id;
-				ar & command;
-				ar & version;
-				ar & name;
-				ar & original;
-
+		template <typename A> 
+			void serialize(A& ar){
+				std::string sn(name), orr(original);
+				ar & this->unique_id;
+				ar & this->command;
+				ar & this->version;
+				ar & sn;
+				ar & orr;
 			}
 
 		command_t(int r, int c, int v, const std::string &s) : unique_id(r), command(c), version(v) {
 			if (s.length() > MAX_SIZE)
 				throw std::runtime_error("checkpoint name '" + s + "' is longer than admissible size " + std::to_string(MAX_SIZE));
-			std::strcpy(name, s.c_str());
+			//s.c_str()
+			std::strcpy(name ,s.c_str());
 		}
 		std::string stem() const {
 			return std::string(name) + "-" + std::to_string(unique_id) +

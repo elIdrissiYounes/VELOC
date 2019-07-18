@@ -18,13 +18,17 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/younes/anl-veloc/install/include"
   "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"
   "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent"
   "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include"
   "/usr/lib/x86_64-linux-gnu/openmpi/include"
+  "/home/younes/anl-veloc/install/include"
   "."
   "src"
+  "/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/thallium-0.4-tptj5pfi4royjxjmoqozdkdpr2ys73fg/include"
+  "/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/include"
+  "/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/margo-0.5-m3puxdaa7ob6tz2jlk5i44ega7w4l2up/include"
+  "/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include"
   )
 
 # Targets to which this target links.

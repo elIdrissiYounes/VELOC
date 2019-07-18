@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG -fPIC   -O2 -g -Wall -std=gnu++14
 
 CXX_DEFINES = -D__ASSERT -D__BENCHMARK -D__INFO -Dveloc_modules_EXPORTS
 
-CXX_INCLUDES = -I/home/younes/anl-veloc/install/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/home/younes/anl-veloc/VELOC -I/home/younes/anl-veloc/VELOC/src 
+CXX_INCLUDES = -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/home/younes/anl-veloc/install/include -I/home/younes/anl-veloc/VELOC -I/home/younes/anl-veloc/VELOC/src 
 

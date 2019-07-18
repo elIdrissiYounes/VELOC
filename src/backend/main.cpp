@@ -1,7 +1,7 @@
 #include "common/config.hpp"
 #include "common/command.hpp"
 #include "common/ipc_queue.hpp"
-
+#include<string>
 #include "modules/module_manager.hpp"
 
 #include <queue>
@@ -9,8 +9,6 @@
 
 #define __DEBUG
 #include "common/debug.hpp"
-#include <thallium.hpp>
-namespace tl=thallium;
 const unsigned int MAX_PARALLELISM = 64;
 
 
@@ -43,7 +41,7 @@ int main(int argc, char *argv[]) {
     }
 
     veloc_ipc::cleanup();
-    veloc_ipc::shm_queue_t<command_t> command_queue(myEngine,provider_id);
+    veloc_ipc::shm_queue_t<command_t> command_queue(myEngine,22);
     module_manager_t modules;
     modules.add_default_modules(cfg, MPI_COMM_WORLD, ec_active);
 

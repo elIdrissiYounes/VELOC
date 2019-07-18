@@ -5,24 +5,20 @@
 #include <stdexcept>
 #include <unistd.h>
 #include <ftw.h>
-
 //#define __DEBUG
 #include "common/debug.hpp"
-
-//namespace tl =thallium;
+#include <thallium/serialization/stl/string.hpp>
 veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
-    cfg(cfg_file), comm(c) {
+    cfg(cfg_file), comm(c),
+    engine_client("tcp",THALLIUM_CLIENT_MODE),ph(engine_client.lookup("tcp://127.0.0.1:1234"),22), init(engine_client.define("init")),dequeue_any(engine_client.define("dequeue_any")),wait_completion(engine_client.define("wait_completion")),enqueue(engine_client.define("enqueue")){
     MPI_Comm_rank(comm, &rank);
-    engine_client("tcp://127.0.0.1:1234",THALLIUM_CLIENT_MODE);
     //DEFINING FTS
-
-    tl::remote_procedure init= engine_client.define("init");
-    tl::remote_procedure enqueue= engine_client.define("enqueue");
-    tl::remote_procedure dequeue_any= engine_client.define("dequeue_any");
-    tl::remote_procedure wait_completion= engine_client.define("wait_completion");
-    tl::endpoint server=engine_client.lookup("tcp://127.0.0.1:1234");
-    uint16_t provider_id=22;
-    ph(server,provider_id);
+   // tl::remote_procedure dequeue_any= engine_client.define("dequeue_any");
+   // tl::remote_procedure wait_completion= engine_client.define("wait_completion");
+   // tl::remote_procedure enqueue= engine_client.define("enqueue");
+   // tl::endpoint server=engine_client.lookup("tcp://127.0.0.1:1234");
+   // uint16_t provider_id=22;
+   // ph(server,provider_id);
     if (!cfg.get_optional("max_versions", max_versions)) {
 	INFO("Max number of versions to keep not specified, keeping all");
 	max_versions = 0;
@@ -33,7 +29,7 @@ veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
 	modules->add_default_modules(cfg, comm, true);
     } else
 	//init
-	init.on(ph)(std::to_string(rank).c_str());
+	init.on(ph)(std::to_string(rank));
 	//queue = new veloc_ipc::shm_queue_t<command_t>(std::to_string(rank).c_str());
     ec_active = run_blocking(command_t(rank, command_t::INIT, 0, "")) > 0;
     DBG("VELOC initialized");
@@ -71,7 +67,8 @@ bool veloc_client_t::checkpoint_wait() {
 	return false;
     }
     //is veloc_succes a problem?
-    return wait_completion.on(ph) == VELOC_SUCCESS;
+    int tebi=wait_completion.on(ph)(); 
+    return tebi== VELOC_SUCCESS;
 }
 
 bool veloc_client_t::checkpoint_begin(const char *name, int version) {
@@ -128,6 +125,7 @@ bool veloc_client_t::checkpoint_mem() {
 
 bool veloc_client_t::checkpoint_end(bool /*success*/) {
     checkpoint_in_progress = false;
+
     if (cfg.is_sync())
 	return modules->notify_command(current_ckpt) == VELOC_SUCCESS;
     else {
@@ -143,9 +141,10 @@ int veloc_client_t::run_blocking(const command_t &cmd) {
     else {
 	
 	//queue->enqueue(cmd);
-	enqueue.on(ph)(cmd)
+	enqueue.on(ph)(cmd);
 	//return queue->wait_completion();
-	return wait_completion.on(ph);
+	int bb=wait_completion.on(ph)();
+	return bb;
     }
 }
 

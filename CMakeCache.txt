@@ -23,9 +23,6 @@ AXL_LIBRARIES:FILEPATH=/home/younes/anl-veloc/install/lib/libaxl.so
 //The directory containing a CMake configuration file for Boost.
 Boost_DIR:PATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/boost-1.70.0-ykagmu7lhxj2pj5owwoskxqmulglt552/lib/cmake/Boost-1.70.0
 
-//Path to a file.
-Boost_INCLUDE_DIR:PATH=/home/younes/anl-veloc/install/include
-
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -352,9 +349,6 @@ boost_headers_DIR:PATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc
 mercury_DIR:PATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/share/cmake/mercury
 
 //Path to a library.
-pkgcfg_lib__argobots_abt:FILEPATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib/libabt.so
-
-//Path to a library.
 pkgcfg_lib__margo_abt:FILEPATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib/libabt.so
 
 //Path to a library.
@@ -379,7 +373,7 @@ pkgcfg_lib__margo_na:FILEPATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86
 thallium_DIR:PATH=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/thallium-0.4-tptj5pfi4royjxjmoqozdkdpr2ys73fg/share/cmake/thallium
 
 //Dependencies for the target
-veloc-client_LIB_DEPENDS:STATIC=general;veloc-modules;general;/home/younes/anl-veloc/install/lib/liber.so;general;/home/younes/anl-veloc/install/lib/librankstr.so;general;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so;general;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;general;rt;
+veloc-client_LIB_DEPENDS:STATIC=general;veloc-modules;general;thallium;general;/home/younes/anl-veloc/install/lib/liber.so;general;/home/younes/anl-veloc/install/lib/librankstr.so;general;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so;general;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;general;rt;
 
 //Dependencies for the target
 veloc-modules_LIB_DEPENDS:STATIC=general;/home/younes/anl-veloc/install/lib/liber.so;general;/home/younes/anl-veloc/install/lib/librankstr.so;general;/home/younes/anl-veloc/install/lib/libaxl.so;general;-lpthread;
@@ -395,8 +389,6 @@ AXL_INCLUDE_DIRS-ADVANCED:INTERNAL=1
 AXL_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_DIR
 Boost_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_INCLUDE_DIR
-Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -656,78 +648,10 @@ X_DATADIR:INTERNAL=/home/younes/anl-veloc/install/share
 X_INCLUDEDIR:INTERNAL=/home/younes/anl-veloc/install/include
 //lib
 X_LIBDIR:INTERNAL=/home/younes/anl-veloc/install/lib
-//Components requested for this build tree.
-_Boost_COMPONENTS_SEARCHED:INTERNAL=
-//Last used Boost_INCLUDE_DIR value.
-_Boost_INCLUDE_DIR_LAST:INTERNAL=/home/younes/anl-veloc/install/include
-//Last used Boost_NAMESPACE value.
-_Boost_NAMESPACE_LAST:INTERNAL=boost
-//Last used Boost_USE_MULTITHREADED value.
-_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/younes/anl-veloc/install
-__pkg_config_arguments__argobots:INTERNAL=IMPORTED_TARGET;REQUIRED;argobots
 __pkg_config_arguments__margo:INTERNAL=IMPORTED_TARGET;REQUIRED;margo
-__pkg_config_checked__argobots:INTERNAL=1
 __pkg_config_checked__margo:INTERNAL=1
-_abtio_CFLAGS:INTERNAL=
-_abtio_CFLAGS_I:INTERNAL=
-_abtio_CFLAGS_OTHER:INTERNAL=
-_abtio_FOUND:INTERNAL=
-_abtio_INCLUDEDIR:INTERNAL=
-_abtio_LIBDIR:INTERNAL=
-_abtio_LIBS:INTERNAL=
-_abtio_LIBS_L:INTERNAL=
-_abtio_LIBS_OTHER:INTERNAL=
-_abtio_LIBS_PATHS:INTERNAL=
-_abtio_PREFIX:INTERNAL=
-_abtio_STATIC_CFLAGS:INTERNAL=
-_abtio_STATIC_CFLAGS_I:INTERNAL=
-_abtio_STATIC_CFLAGS_OTHER:INTERNAL=
-_abtio_STATIC_LIBDIR:INTERNAL=
-_abtio_STATIC_LIBS:INTERNAL=
-_abtio_STATIC_LIBS_L:INTERNAL=
-_abtio_STATIC_LIBS_OTHER:INTERNAL=
-_abtio_STATIC_LIBS_PATHS:INTERNAL=
-_abtio_VERSION:INTERNAL=
-_abtio_abt-io_INCLUDEDIR:INTERNAL=
-_abtio_abt-io_LIBDIR:INTERNAL=
-_abtio_abt-io_PREFIX:INTERNAL=
-_abtio_abt-io_VERSION:INTERNAL=
-_argobots_CFLAGS:INTERNAL=-I/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
-_argobots_CFLAGS_I:INTERNAL=
-_argobots_CFLAGS_OTHER:INTERNAL=
-_argobots_FOUND:INTERNAL=1
-_argobots_INCLUDEDIR:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
-_argobots_INCLUDE_DIRS:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
-_argobots_LDFLAGS:INTERNAL=-L/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib;-labt
-_argobots_LDFLAGS_OTHER:INTERNAL=
-_argobots_LIBDIR:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib
-_argobots_LIBRARIES:INTERNAL=abt
-_argobots_LIBRARY_DIRS:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib
-_argobots_LIBS:INTERNAL=
-_argobots_LIBS_L:INTERNAL=
-_argobots_LIBS_OTHER:INTERNAL=
-_argobots_LIBS_PATHS:INTERNAL=
-_argobots_PREFIX:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud
-_argobots_STATIC_CFLAGS:INTERNAL=-I/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
-_argobots_STATIC_CFLAGS_I:INTERNAL=
-_argobots_STATIC_CFLAGS_OTHER:INTERNAL=
-_argobots_STATIC_INCLUDE_DIRS:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
-_argobots_STATIC_LDFLAGS:INTERNAL=-L/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib;-labt;-lm;-lpthread
-_argobots_STATIC_LDFLAGS_OTHER:INTERNAL=
-_argobots_STATIC_LIBDIR:INTERNAL=
-_argobots_STATIC_LIBRARIES:INTERNAL=abt;m;pthread
-_argobots_STATIC_LIBRARY_DIRS:INTERNAL=/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib
-_argobots_STATIC_LIBS:INTERNAL=
-_argobots_STATIC_LIBS_L:INTERNAL=
-_argobots_STATIC_LIBS_OTHER:INTERNAL=
-_argobots_STATIC_LIBS_PATHS:INTERNAL=
-_argobots_VERSION:INTERNAL=1.0rc1
-_argobots_argobots_INCLUDEDIR:INTERNAL=
-_argobots_argobots_LIBDIR:INTERNAL=
-_argobots_argobots_PREFIX:INTERNAL=
-_argobots_argobots_VERSION:INTERNAL=
 _margo_CFLAGS:INTERNAL=-I/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/margo-0.5-m3puxdaa7ob6tz2jlk5i44ega7w4l2up/include;-I/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/include;-I/home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/include
 _margo_CFLAGS_I:INTERNAL=
 _margo_CFLAGS_OTHER:INTERNAL=

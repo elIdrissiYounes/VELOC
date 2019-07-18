@@ -143,11 +143,24 @@ src/lib/libveloc-client.so: src/lib/CMakeFiles/veloc-client.dir/client.cpp.o
 src/lib/libveloc-client.so: src/lib/CMakeFiles/veloc-client.dir/__/common/config.cpp.o
 src/lib/libveloc-client.so: src/lib/CMakeFiles/veloc-client.dir/build.make
 src/lib/libveloc-client.so: src/modules/libveloc-modules.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/thallium-0.4-tptj5pfi4royjxjmoqozdkdpr2ys73fg/lib/libthallium.so.0.4.0
 src/lib/libveloc-client.so: /home/younes/anl-veloc/install/lib/liber.so
 src/lib/libveloc-client.so: /home/younes/anl-veloc/install/lib/librankstr.so
 src/lib/libveloc-client.so: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
 src/lib/libveloc-client.so: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
 src/lib/libveloc-client.so: /home/younes/anl-veloc/install/lib/libaxl.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so.1.0.1
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so.0.3.1
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so.1.0.1
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so.1.0.1
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/libfabric-1.8.0-qmuyvkxz3lyjhve5z22lo4ahdxeqivmu/lib/libfabric.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/margo-0.5-m3puxdaa7ob6tz2jlk5i44ega7w4l2up/lib/libmargo.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_hl.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so
+src/lib/libveloc-client.so: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib/libabt.so
 src/lib/libveloc-client.so: src/lib/CMakeFiles/veloc-client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/younes/anl-veloc/VELOC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libveloc-client.so"
 	cd /home/younes/anl-veloc/VELOC/src/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/veloc-client.dir/link.txt --verbose=$(VERBOSE)

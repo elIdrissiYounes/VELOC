@@ -467,6 +467,16 @@ thallium/serialization/stl/array.hpp
 -
 thallium/serialization/stl/list.hpp
 -
+thallium/serialization/stl/string.hpp
+-
+thallium/serialization/stl/pair.hpp
+-
+thallium/serialization/stl/complex.hpp
+-
+thallium/serialization/stl/map.hpp
+-
+thallium/serialization/stl/set.hpp
+-
 
 src/common/config.hpp
 INIReader.h

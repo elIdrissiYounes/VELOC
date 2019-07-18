@@ -91,6 +91,19 @@ heatdis_original_EXTERNAL_OBJECTS =
 test/heatdis_original: test/CMakeFiles/heatdis_original.dir/heatdis_original.c.o
 test/heatdis_original: test/CMakeFiles/heatdis_original.dir/build.make
 test/heatdis_original: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/thallium-0.4-tptj5pfi4royjxjmoqozdkdpr2ys73fg/lib/libthallium.so.0.4.0
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so.1.0.1
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so.0.3.1
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so.1.0.1
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so.1.0.1
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/libfabric-1.8.0-qmuyvkxz3lyjhve5z22lo4ahdxeqivmu/lib/libfabric.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/margo-0.5-m3puxdaa7ob6tz2jlk5i44ega7w4l2up/lib/libmargo.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_hl.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmchecksum.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libmercury_util.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mercury-1.0.1-slaw243nm5wbm4ss6gdlf5ay2bxfm2xo/lib/libna.so
+test/heatdis_original: /home/younes/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/argobots-develop-fkuparslel74a5f5cpicvinf4lgkplud/lib/libabt.so
 test/heatdis_original: test/CMakeFiles/heatdis_original.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/younes/anl-veloc/VELOC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable heatdis_original"
 	cd /home/younes/anl-veloc/VELOC/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/heatdis_original.dir/link.txt --verbose=$(VERBOSE)

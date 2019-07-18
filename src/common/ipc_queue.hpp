@@ -39,6 +39,9 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 		int status = VELOC_SUCCESS;
 		list_t pending, progress;
 		container_t(const T_allocator &alloc) : pending(alloc), progress(alloc) { }
+
+
+
 	};
 	typedef typename container_t::list_t::iterator list_iterator_t;
 
@@ -70,45 +73,6 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 			q->status = std::max(q->status, status);
 		q->cond.notify_one();
 	}
-
-	public:    
-	shm_queue_t(tl::engine& e, uint16_t provider_id=22) : segment(open_or_create, "veloc_shm" , MAX_SIZE),
-	pending_mutex(open_or_create, "veloc_pending_mutex"),
-	pending_cond(open_or_create, "veloc_pending_cond"), 
-			tl::provider<shm_queue_t<T>>(e,provider_id){
-
-		scoped_lock<named_mutex> cond_lock(pending_mutex);
-	/*	if (id != NULL){
-		
-			data = segment.find_or_construct<container_t>(id)(segment.get_allocator<typename container_t::T_allocator>());
-		}*/
-		this->define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
-		this->define("dequeue_any",&shm_queue_t::dequeue_any);
-		this->define("init",&shm_queue_t::init,tl::ignore_return_value());
-		this->define("wait_completion",&shm_queue_t::wait_completion);
-			
-
-		
-	}
-	void init(const char *id){
-	
-			data = segment.find_or_construct<container_t>(id)(segment.get_allocator<typename container_t::T_allocator>());
-
-
-	}
-/*	~shm_queue_t(){
-		wait_for_finalize();
-	}
-*/
-	int wait_completion(bool reset_status = true) {
-		scoped_lock<interprocess_mutex> cond_lock(data->mutex);
-		while (!check_completion())
-			data->cond.wait(cond_lock);
-		int ret = data->status;
-		if (reset_status)
-			data->status = VELOC_SUCCESS;
-		return ret;
-	}
 	void enqueue(const T &e) {
 		// enqueue an element and notify the consumer
 		scoped_lock<interprocess_mutex> queue_lock(data->mutex);
@@ -118,6 +82,49 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 		pending_cond.notify_one();
 		DBG("enqueued element " << e);
 	}
+	public:    
+	shm_queue_t(tl::engine& e, uint16_t provider_id=22) : segment(open_or_create, "veloc_shm" , MAX_SIZE),
+	pending_mutex(open_or_create, "veloc_pending_mutex"),
+	pending_cond(open_or_create, "veloc_pending_cond"), 
+		tl::provider<shm_queue_t<T>>(e,provider_id)	{
+
+
+		scoped_lock<named_mutex> cond_lock(pending_mutex);
+	/*	if (id != NULL){
+		
+			data = segment.find_or_construct<container_t>(id)(segment.get_allocator<typename container_t::T_allocator>());
+		}*/
+		
+		this-> define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
+		//this->define("dequeue_any",&shm_queue_t::dequeue_any);
+		this-> define("init",&shm_queue_t::init,tl::ignore_return_value());
+		this-> define("wait_completion",&shm_queue_t::wait_completion);
+			
+}
+	int wait_completion(bool reset_status = true) {
+		scoped_lock<interprocess_mutex> cond_lock(data->mutex);
+		while (!check_completion())
+			data->cond.wait(cond_lock);
+		int ret = data->status;
+		if (reset_status)
+			data->status = VELOC_SUCCESS;
+		return ret;
+	}
+
+	//const char *id
+	void init( string zizi){
+			 char id[zizi.size()+1];
+		zizi.copy(id,zizi.size()+1);
+	id[zizi.size()]='\0';	
+			data = segment.find_or_construct<container_t>(id)(segment.get_allocator<typename container_t::T_allocator>());
+
+
+	}
+/*	~shm_queue_t(){
+		wait_for_finalize();
+	}
+*/
+
 	completion_t dequeue_any(T &e) {
 		// wait until at least one pending queue has at least one element
 		container_t *first_found;
