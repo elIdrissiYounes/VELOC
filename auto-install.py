@@ -91,7 +91,7 @@ if __name__ == "__main__":
                        && make install".format(args.temp + '/pdsh-2.33', args.prefix))
     
     # VeloC
-    ret = os.WEXITSTATUS(os.system("cmake -DCMAKE_INSTALL_PREFIX={0} -DCMAKE_BUILD_TYPE={1} -DWITH_PDSH_PREFIX={2} {3}\
+    ret = os.WEXITSTATUS(os.system("cmake -DCMAKE_BUILD_TYPE='Debug' -DCMAKE_INSTALL_PREFIX={0} -DCMAKE_BUILD_TYPE={1} -DWITH_PDSH_PREFIX={2} {3}\
                                    && make install".format(args.prefix, cmake_build_type, args.prefix, compiler_options)))
 
     # Cleanup

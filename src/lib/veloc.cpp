@@ -5,7 +5,6 @@ static veloc_client_t *veloc_client = NULL;
 
 #define __DEBUG
 #include "common/debug.hpp"
-
 void __attribute__ ((constructor)) veloc_constructor() {
 }
 

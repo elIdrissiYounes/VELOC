@@ -6,12 +6,7 @@
 #include <stdexcept>
 #include <thallium.hpp>
 #include <thallium/serialization/stl/array.hpp>
-#include <thallium/serialization/stl/list.hpp>
 #include <thallium/serialization/stl/string.hpp>
-#include <thallium/serialization/stl/pair.hpp>
-#include <thallium/serialization/stl/complex.hpp>
-#include <thallium/serialization/stl/map.hpp>
-#include <thallium/serialization/stl/set.hpp>
 namespace tl=thallium;
 class command_t {
 	public:
@@ -19,7 +14,7 @@ class command_t {
 		static const int INIT = 0, CHECKPOINT = 1, RESTART = 2, TEST = 3;
 
 		int unique_id, command, version;
-		char name[MAX_SIZE] = {}, original[MAX_SIZE] = {};
+		char  name[MAX_SIZE]={}, original[MAX_SIZE]={};
 		command_t() { }
 		template <typename A> 
 			void serialize(A& ar){
@@ -34,18 +29,18 @@ class command_t {
 		command_t(int r, int c, int v, const std::string &s) : unique_id(r), command(c), version(v) {
 			if (s.length() > MAX_SIZE)
 				throw std::runtime_error("checkpoint name '" + s + "' is longer than admissible size " + std::to_string(MAX_SIZE));
-			//s.c_str()
 			std::strcpy(name ,s.c_str());
 		}
 		std::string stem() const {
-			return std::string(name) + "-" + std::to_string(unique_id) +
+			return std::string(name)+ "-" + std::to_string(unique_id) +
 				"-" + std::to_string(version) + ".dat";
 		}
 		std::string filename(const std::string &prefix) const {
 			return prefix + "/" + stem();
 		}
+		//had +name
 		std::string filename(const std::string &prefix, int new_version) const {
-			return prefix + "/" + name +
+			return prefix + "/" + name+
 				"-" + std::to_string(unique_id) + "-" +
 				std::to_string(new_version) + ".dat";
 		}

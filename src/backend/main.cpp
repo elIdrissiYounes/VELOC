@@ -16,7 +16,7 @@ const unsigned int MAX_PARALLELISM = 64;
 int main(int argc, char *argv[]) {
     bool ec_active = true;
     uint16_t provider_id = 22;
-    tl::engine myEngine("tcp://127.0.0.1:1234",THALLIUM_SERVER_MODE);
+    tl::engine myEngine("tcp://127.0.0.1:3421",THALLIUM_SERVER_MODE);
     if (argc < 2 || argc > 3) {
 	veloc_ipc::cleanup();
 	std::cout << "Usage: " << argv[0] << " <veloc_config> [--disable-ec]" << std::endl;

@@ -40,8 +40,6 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 		list_t pending, progress;
 		container_t(const T_allocator &alloc) : pending(alloc), progress(alloc) { }
 
-
-
 	};
 	typedef typename container_t::list_t::iterator list_iterator_t;
 
@@ -96,7 +94,6 @@ template <class T> class shm_queue_t: public tl::provider<shm_queue_t<T>> {
 		}*/
 		
 		this-> define("enqueue",&shm_queue_t::enqueue,tl::ignore_return_value());
-		//this->define("dequeue_any",&shm_queue_t::dequeue_any);
 		this-> define("init",&shm_queue_t::init,tl::ignore_return_value());
 		this-> define("wait_completion",&shm_queue_t::wait_completion);
 			

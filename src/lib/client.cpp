@@ -7,18 +7,33 @@
 #include <ftw.h>
 //#define __DEBUG
 #include "common/debug.hpp"
-#include <thallium/serialization/stl/string.hpp>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static tl::engine engine_client("tcp",THALLIUM_CLIENT_MODE);
+static tl::remote_procedure wait_completion=engine_client.define("wait_completion");
+static tl::remote_procedure init=engine_client.define("init");
+static tl::endpoint server(engine_client.lookup("tcp://127.0.0.1:3421"));
+static tl::provider_handle ph(server,22); 
+static tl::remote_procedure dequeue_any=engine_client.define("dequeue_any");
+static tl::remote_procedure enqueue=engine_client.define("enqueue");
+
 veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
-    cfg(cfg_file), comm(c),
-    engine_client("tcp",THALLIUM_CLIENT_MODE),ph(engine_client.lookup("tcp://127.0.0.1:1234"),22), init(engine_client.define("init")),dequeue_any(engine_client.define("dequeue_any")),wait_completion(engine_client.define("wait_completion")),enqueue(engine_client.define("enqueue")){
+    cfg(cfg_file), comm(c){
     MPI_Comm_rank(comm, &rank);
     //DEFINING FTS
-   // tl::remote_procedure dequeue_any= engine_client.define("dequeue_any");
-   // tl::remote_procedure wait_completion= engine_client.define("wait_completion");
-   // tl::remote_procedure enqueue= engine_client.define("enqueue");
-   // tl::endpoint server=engine_client.lookup("tcp://127.0.0.1:1234");
-   // uint16_t provider_id=22;
-   // ph(server,provider_id);
     if (!cfg.get_optional("max_versions", max_versions)) {
 	INFO("Max number of versions to keep not specified, keeping all");
 	max_versions = 0;

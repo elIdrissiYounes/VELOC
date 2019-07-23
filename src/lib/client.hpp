@@ -3,14 +3,12 @@
 
 #include "common/config.hpp"
 #include "common/command.hpp"
-#include "common/ipc_queue.hpp"
 #include "modules/module_manager.hpp"
 
 #include <unordered_map>
 #include <map>
 #include <set>
 #include <deque>
-#include <thallium.hpp>
 #include <thallium/serialization/stl/string.hpp>
 //does it exist?
 //#include <thallium/serialization/stl/boolean.hpp>
@@ -20,12 +18,7 @@ class veloc_client_t {
     config_t cfg;
     MPI_Comm comm;
     bool collective, ec_active;
-    tl::remote_procedure init;
-    tl::remote_procedure enqueue;
-    tl::remote_procedure wait_completion;
-    tl::remote_procedure dequeue_any;
     int max_versions;
-    tl::engine engine_client;
     tl::provider_handle ph;
     typedef std::pair <void *, size_t> region_t;
     typedef std::map<int, region_t> regions_t;
