@@ -5,7 +5,6 @@
 #include <cstring>
 #include <stdexcept>
 #include <thallium.hpp>
-#include <thallium/serialization/stl/array.hpp>
 #include <thallium/serialization/stl/string.hpp>
 namespace tl=thallium;
 class command_t {

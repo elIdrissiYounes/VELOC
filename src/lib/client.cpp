@@ -7,31 +7,21 @@
 #include <ftw.h>
 //#define __DEBUG
 #include "common/debug.hpp"
+#include<string>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-static tl::engine engine_client("tcp",THALLIUM_CLIENT_MODE);
-static tl::remote_procedure wait_completion=engine_client.define("wait_completion");
-static tl::remote_procedure init=engine_client.define("init");
-static tl::endpoint server(engine_client.lookup("tcp://127.0.0.1:3421"));
-static tl::provider_handle ph(server,22); 
-static tl::remote_procedure dequeue_any=engine_client.define("dequeue_any");
-static tl::remote_procedure enqueue=engine_client.define("enqueue");
+//static tl::engine engine_client("tcp",THALLIUM_CLIENT_MODE);
+//static tl::remote_procedure wait_completion=engine_client.define("wait_completion");
+//static tl::remote_procedure enqueue=engine_client.define("enqueue");
+//static tl::endpoint server(engine_client.lookup("tcp://127.0.0.1:3421"));
+//static tl::provider_handle ph(server,22); 
 
 veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
-    cfg(cfg_file), comm(c){
+    cfg(cfg_file), comm(c), engine_client("tcp",THALLIUM_CLIENT_MODE),
+	wait_completion(engine_client.define("wait_completion")),
+	enqueue(engine_client.define("enqueue")),
+	init(engine_client.define("init")),
+	server(engine_client.lookup("tcp://127.0.0.1:3421")),
+	ph(server,22){
     MPI_Comm_rank(comm, &rank);
     //DEFINING FTS
     if (!cfg.get_optional("max_versions", max_versions)) {
@@ -42,7 +32,7 @@ veloc_client_t::veloc_client_t(MPI_Comm c, const char *cfg_file) :
     if (cfg.is_sync()) {
 	modules = new module_manager_t();
 	modules->add_default_modules(cfg, comm, true);
-    } else
+    } 
 	//init
 	init.on(ph)(std::to_string(rank));
 	//queue = new veloc_ipc::shm_queue_t<command_t>(std::to_string(rank).c_str());
@@ -82,7 +72,7 @@ bool veloc_client_t::checkpoint_wait() {
 	return false;
     }
     //is veloc_succes a problem?
-    int tebi=wait_completion.on(ph)(); 
+    int tebi=wait_completion.on(ph)(true,std::to_string(rank)); 
     return tebi== VELOC_SUCCESS;
 }
 
@@ -105,7 +95,7 @@ bool veloc_client_t::checkpoint_begin(const char *name, int version) {
 	    // wait for operations to complete in async mode before deleting old versions
 	    if (!cfg.is_sync())
 		//queue->wait_completion(false);
-		wait_completion.on(ph)(false);
+		wait_completion.on(ph)(false,std::to_string(rank));
 	    remove(current_ckpt.filename(cfg.get("scratch"), version_history.front()).c_str());
 	    version_history.pop_front();
 	}
@@ -144,7 +134,7 @@ bool veloc_client_t::checkpoint_end(bool /*success*/) {
     if (cfg.is_sync())
 	return modules->notify_command(current_ckpt) == VELOC_SUCCESS;
     else {
-	enqueue.on(ph)(current_ckpt);
+	enqueue.on(ph)(current_ckpt,std::to_string(rank));
 	//queue->enqueue(current_ckpt);
 	return true;
     }
@@ -156,9 +146,9 @@ int veloc_client_t::run_blocking(const command_t &cmd) {
     else {
 	
 	//queue->enqueue(cmd);
-	enqueue.on(ph)(cmd);
+	enqueue.on(ph)(cmd,std::to_string(rank));
 	//return queue->wait_completion();
-	int bb=wait_completion.on(ph)();
+	int bb=wait_completion.on(ph)(true,std::to_string(rank));
 	return bb;
     }
 }
